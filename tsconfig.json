@@ -1,5 +1,13 @@
 {
   "compilerOptions": {
     "target": "es6"
-  }
+  },
+  "paths": {
+    "*": [
+      "types/*", "@types/*"
+    ],
+    "@/*": [
+      "src/*"
+    ]
+  },
 }
