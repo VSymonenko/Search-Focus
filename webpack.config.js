@@ -83,15 +83,15 @@ module.exports = (env, argv) => ({
   },
 
   devServer: {
-    index:  path.join(__dirname, 'src', './ui.html'),
-    contentBase: path.join(__dirname, 'dist'),
+    index:  'ui.html',
+    contentBase: path.join(__dirname, 'src'),
     watchContentBase: true,
     open: true,
-    compress: true,
-    port: 8080,
+    port: 8081,
     hot: true, // hot module replacement. Depends on HotModuleReplacementPlugin
     noInfo: true,
     injectHot: true,
+    inline: true,
   },
   // Tells Webpack to generate "ui.html" and to inline "ui.ts" into it
   plugins: [

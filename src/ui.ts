@@ -1,6 +1,5 @@
 // import Vue, { VNode, VNodeData } from 'vue';
 // import { Component } from 'vue-property-decorator';
-// FIXME start serve content with webpack dev server
 
 // const ff = document.getElementById('find-and-focus');
 // const input = document.createElement('input');
