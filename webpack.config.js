@@ -1,5 +1,7 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const path = require('path');
+const webpack = require('webpack');
 
 // https://github.com/facebook/create-react-app/tree/4784997f0682e75eb32a897b4ffe34d735912e6c/packages/react-dev-utils
 class InlineSourceHtmlPlugin {
@@ -64,6 +66,11 @@ module.exports = (env, argv) => ({
 
       // Allows you to use "<%= require('./file.svg') %>" in your HTML code to get a data URI
       { test: /\.(png|jpg|gif|webp|svg)$/, loader: [{ loader: 'url-loader' }] },
+
+      {
+        test: /\.html$/,
+        loader: 'html-loader',
+      },
     ],
   },
 
@@ -75,8 +82,21 @@ module.exports = (env, argv) => ({
     path: path.resolve(__dirname, 'dist'), // Compile into a folder called "dist"
   },
 
+  devServer: {
+    index:  path.join(__dirname, 'src', './ui.html'),
+    contentBase: path.join(__dirname, 'dist'),
+    watchContentBase: true,
+    open: true,
+    compress: true,
+    port: 8080,
+    hot: true, // hot module replacement. Depends on HotModuleReplacementPlugin
+    noInfo: true,
+    injectHot: true,
+  },
   // Tells Webpack to generate "ui.html" and to inline "ui.ts" into it
   plugins: [
+    new CleanWebpackPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
       template: './src/ui.html',
       filename: 'ui.html',

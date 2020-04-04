@@ -1,7 +1,7 @@
 // import Vue, { VNode, VNodeData } from 'vue';
 // import { Component } from 'vue-property-decorator';
-// FIXME add hot reload to webpack
-// 
+// FIXME start serve content with webpack dev server
+
 // const ff = document.getElementById('find-and-focus');
 // const input = document.createElement('input');
 // const ul = document.createElement('ul');
