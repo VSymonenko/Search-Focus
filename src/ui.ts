@@ -1,8 +1,28 @@
-// import Vue, { VNode, VNodeData } from 'vue';
-// import { Component } from 'vue-property-decorator';
+import Vue, { CreateElement, VNode } from 'vue';
+import { Component } from 'vue-property-decorator';
+import { VTextField } from 'vuetify/lib/components';
+import Vuetify from 'vuetify/lib';
+
+Vue.use(Vuetify)
+
+@Component({
+  name: 'Input',
+})
+class Input extends Vue {
+  render(createElement: CreateElement): VNode {
+    return createElement(VTextField);
+  }
+};
+
+
+new Vue({
+  el: '#find-and-focus',
+  render: (h: CreateElement) => h('div', {}, [
+    h(Input),
+  ]),
+});
 
 // const ff = document.getElementById('find-and-focus');
-// const input = document.createElement('input');
 // const ul = document.createElement('ul');
 // 
 // input.type = 'search';

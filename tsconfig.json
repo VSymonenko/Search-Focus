@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "target": "es6",
+    "module":"ESNext",
     "strict": true,
     "strictNullChecks": true,
     "strictFunctionTypes": true,
@@ -9,7 +10,6 @@
     "alwaysStrict": true,
     "allowSyntheticDefaultImports": true,
     "inlineSourceMap": true,
-    "module":"ESNext",
     "declaration": true,
     "experimentalDecorators": true,
     "noImplicitAny": true,
@@ -17,19 +17,23 @@
     "noUnusedParameters": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
-    "traceResolution": true,
     "extendedDiagnostics": true,
     "skipLibCheck": true,
     "allowUnreachableCode": true,
+    "moduleResolution": "node",
+    "types": ["node", "jest", "vuetify"]
   },
   "paths": {
-    "*": [
-      "types/*", "@types/*"
-    ],
     "@/*": [
       "src/*"
     ]
   },
-  "include": ["src/**/*", "types"],
-  "exclude": ["node_modules", "**/*.spec.ts"]
+  "include": [
+    "src/**/*",
+    "types"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/*.spec.ts"
+  ]
 }
