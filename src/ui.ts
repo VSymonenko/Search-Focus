@@ -1,7 +1,6 @@
 import Vue, { CreateElement, VNode } from 'vue';
 import { Component } from 'vue-property-decorator';
-import { VTextField } from 'vuetify/lib/components';
-import Vuetify from 'vuetify/lib';
+import Vuetify, { VTextField } from 'vuetify/lib';
 
 Vue.use(Vuetify)
 
