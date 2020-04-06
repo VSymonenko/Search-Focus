@@ -29,9 +29,5 @@
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.10.3"
   },
-  "dependencies": {
-    "vue": "^2.6.11",
-    "vue-property-decorator": "^8.4.1",
-    "vuetify": "^2.2.20"
-  }
+  "dependencies": {}
 }

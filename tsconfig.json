@@ -21,7 +21,7 @@
     "skipLibCheck": true,
     "allowUnreachableCode": true,
     "moduleResolution": "node",
-    "types": ["node", "jest", "vuetify"]
+    "types": ["node", "jest",]
   },
   "paths": {
     "@/*": [
