@@ -10,7 +10,7 @@ const find = (items: string[], value: string): string[] => {
   return items
     .filter((it) => it.includes(value))
     .sort();
-}
+};
 
 const updateList = (event: Event) => {
   if (event.target instanceof HTMLInputElement) {
@@ -24,7 +24,6 @@ const updateList = (event: Event) => {
       ul.appendChild(li);
     });
   }
-  
 };
 
 input.addEventListener('input', updateList);

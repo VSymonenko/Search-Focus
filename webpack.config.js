@@ -71,30 +71,6 @@ module.exports = (env, argv) => ({
         test: /\.html$/,
         loader: 'html-loader',
       },
-      {
-        test: /\.s(c|a)ss$/,
-        use: [
-          'vue-style-loader',
-          'css-loader',
-          {
-            loader: 'sass-loader',
-            // Requires sass-loader@^7.0.0
-            options: {
-              implementation: require('sass'),
-              fiber: require('fibers'),
-              indentedSyntax: true // optional
-            },
-            // Requires sass-loader@^8.0.0
-            options: {
-              implementation: require('sass'),
-              sassOptions: {
-                fiber: require('fibers'),
-                indentedSyntax: true // optional
-              },
-            },
-          },
-        ],
-      },
     ],
   },
 
@@ -116,11 +92,11 @@ module.exports = (env, argv) => ({
     noInfo: true,
     injectHot: true,
     inline: true,
+    hotOnly: true,
   },
   // Tells Webpack to generate "ui.html" and to inline "ui.ts" into it
   plugins: [
     new CleanWebpackPlugin(),
-    new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
       template: './src/ui.html',
       filename: 'ui.html',
@@ -128,5 +104,7 @@ module.exports = (env, argv) => ({
       chunks: ['ui'],
     }),
     new InlineSourceHtmlPlugin(HtmlWebpackPlugin, ['.(js)$']),
+    // stub, this plugin crashed production build
+    argv.mode === 'development' ? new webpack.HotModuleReplacementPlugin() : () => {},
   ],
 })
