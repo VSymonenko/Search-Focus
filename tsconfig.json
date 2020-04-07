@@ -30,7 +30,8 @@
   },
   "include": [
     "src/**/*",
-    "types"
+    "types",
+    "figma-quokka-plugin"
   ],
   "exclude": [
     "node_modules",
