@@ -96,7 +96,8 @@ module.exports = (env, argv) => ({
   },
   // Tells Webpack to generate "ui.html" and to inline "ui.ts" into it
   plugins: [
-    new CleanWebpackPlugin(),
+    // stub, this plugin crashed production build
+    argv.mode === 'development' ? new webpack.HotModuleReplacementPlugin() : () => {},
     new HtmlWebpackPlugin({
       template: './src/ui.html',
       filename: 'ui.html',
@@ -104,7 +105,5 @@ module.exports = (env, argv) => ({
       chunks: ['ui'],
     }),
     new InlineSourceHtmlPlugin(HtmlWebpackPlugin, ['.(js)$']),
-    // stub, this plugin crashed production build
-    argv.mode === 'development' ? new webpack.HotModuleReplacementPlugin() : () => {},
   ],
 })
