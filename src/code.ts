@@ -1,19 +1,17 @@
 // ✅ 1. get all frame names 
 // ✅ 2. build Map
 
+import { bcrypt } from './share';
+
 // This shows the HTML page in "ui.html".
 figma.showUI(__html__);
 
-interface FrameKey {
-  name: string;
-  id: string;
-}
+const map = new Map<string, SceneNode>();
 
-const map = new WeakMap<FrameKey, SceneNode>();
-
-const createMapRecursive = (root: readonly SceneNode[], map: WeakMap<FrameKey, SceneNode>): void => {
+const createMapRecursive = (root: readonly SceneNode[], map: Map<string, SceneNode>): void => {
   root.forEach((node: SceneNode) => {
-    map.set({name: node.name, id: node.id}, node);
+    const key = bcrypt({name: node.name, id: node.id}) as string;
+    map.set(key, node);
     if ('children' in node) {
       createMapRecursive(node.children, map);
     }
@@ -21,3 +19,17 @@ const createMapRecursive = (root: readonly SceneNode[], map: WeakMap<FrameKey, S
 };
 
 createMapRecursive(figma.currentPage.children, map);
+
+figma.ui.postMessage({type: 'send-list', list: Array.from(map.keys())});
+
+figma.ui.onmessage = (message) => {
+  console.log(message);
+  const { type } = message;
+  if (type === 'focus') {
+    console.log(map);
+    const item = map.get(message.data.key);
+    if (item) {
+      figma.viewport.scrollAndZoomIntoView([item]);
+    }
+  }
+}

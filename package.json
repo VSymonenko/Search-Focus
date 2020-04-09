@@ -4,7 +4,8 @@
   "description": "This plugin template uses Typescript. If you are familiar with Javascript, Typescript will look very familiar. In fact, valid Javascript code is already valid Typescript code.",
   "main": "code.js",
   "scripts": {
-    "dev": "webpack-dev-server",
+    "dev:ui": "webpack-dev-server",
+    "dev:plugin": "webpack --mode=production --watch",
     "build": "webpack --mode=production",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
