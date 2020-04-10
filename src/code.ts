@@ -23,10 +23,8 @@ createMapRecursive(figma.currentPage.children, map);
 figma.ui.postMessage({type: 'send-list', list: Array.from(map.keys())});
 
 figma.ui.onmessage = (message) => {
-  console.log(message);
   const { type } = message;
   if (type === 'focus') {
-    console.log(map);
     const item = map.get(message.data.key);
     if (item) {
       figma.viewport.scrollAndZoomIntoView([item]);

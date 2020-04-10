@@ -1,0 +1,22 @@
+#find-and-focus, input {
+  width: 100%;
+}
+.input-container {
+  border: 2px solid rebeccapurple;
+  border-radius: 4px;
+}
+
+.input-container > input {
+  padding: 12px 16px 14px;
+  border: none;
+}
+
+ul li {
+  cursor: pointer;
+  padding: 4px;
+}
+ul li:hover {
+  transition: opacity 15ms linear,background-color 15ms linear;
+  background-color: ghostwhite;
+  color: rebeccapurple;
+}

@@ -1,26 +1,32 @@
 import { bcrypt } from './share';
+import './ui.css';
 
 const DEBOUNCE_DELAY = 200;
 
 const ff = document.getElementById('find-and-focus');
+const inputWrapper = document.createElement('div');
 const input = document.createElement('input');
 const ul = document.createElement('ul');
 let list: FrameKey[];
 
+inputWrapper.className = 'input-container';
+inputWrapper.appendChild(input);
+
 onmessage = (event) => {
-  const { type, list: frameList } = event.data.pluginMessage;
-  if (type === 'send-list') {
-    list = frameList.map((key: string) => bcrypt(key));
+  if (event.data.pluginMessage) {
+    const { type, list: frameList } = event.data.pluginMessage;
+    if (type === 'send-list') {
+      list = frameList.map((key: string) => bcrypt(key));
+    }
   }
-}
+};
 
 input.type = 'search';
-input.autofocus = true;
 input.placeholder = 'type for searching';
 
 const find = (items: FrameKey[], value: string): FrameKey[] => {
   return items
-    .filter(({name}) => name.toLocaleLowerCase().includes(value.toLocaleLowerCase()))
+    ?.filter(({name}) => name.toLocaleLowerCase().includes(value.toLocaleLowerCase()))
     .sort();
 };
 
@@ -28,15 +34,15 @@ const clearNode = (node: Node) => {
   while (node.lastChild) {
     node.removeChild(node.lastChild);
   }
-}
+};
 
 const focusOnFrame = (frame: FrameKey) => {
   const key = bcrypt(frame);
   parent.postMessage({ pluginMessage: {
     type: 'focus',
     data: { key },
-  }}, '*')
-}
+  }}, '*');
+};
 
 const debounce = (cb: Function, delay: number = DEBOUNCE_DELAY) => {
   let id: NodeJS.Timeout;
@@ -44,9 +50,9 @@ const debounce = (cb: Function, delay: number = DEBOUNCE_DELAY) => {
     clearTimeout(id);
     id = setTimeout(() => {
       cb(...args);
-    }, delay)
+    }, delay);
   } 
-}
+};
 
 const updateList = (event: Event) => {
   clearNode(ul);
@@ -69,6 +75,6 @@ const updateList = (event: Event) => {
 const updated = debounce(updateList);
 input.addEventListener('input', updated);
 
-[input, ul].forEach(item => {
+[inputWrapper, ul].forEach(item => {
   ff?.append(item);
-})
+});
