@@ -1,6 +1,3 @@
-// ✅ 1. get all frame names 
-// ✅ 2. build Map
-
 import { bcrypt } from './share';
 
 // This shows the HTML page in "ui.html".
