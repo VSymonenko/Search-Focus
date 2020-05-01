@@ -3,7 +3,7 @@ import './ui.css';
 
 const DEBOUNCE_DELAY = 200;
 
-const ff = document.getElementById('find-and-focus');
+const sf = document.getElementById('search-and-focus');
 const inputWrapper = document.createElement('div');
 const input = document.createElement('input');
 const ul = document.createElement('ul');
@@ -76,5 +76,5 @@ const updated = debounce(updateList);
 input.addEventListener('input', updated);
 
 [inputWrapper, ul].forEach(item => {
-  ff?.append(item);
+  sf?.append(item);
 });
