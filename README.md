@@ -1,10 +1,16 @@
 This plugin template uses Typescript.
 
+## Description
+
+
+
 ## Roadmap
 
 ✔️ Searching with autocomplete
 
 ✔️ Focusing on ```Node```
+
+❌ Add description about functionality
 
 ❌ Update ```List``` if ```Node``` rename
 
@@ -12,6 +18,10 @@ This plugin template uses Typescript.
 
 ❌ Case Sensitive
 
+❌ Match Whole Word
+
 ❌ Regex Search
 
-❌ Match Whole Word
+❌ Search by type
+
+❌ Move indexing to service worker
