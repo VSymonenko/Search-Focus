@@ -1,22 +1,35 @@
-#find-and-focus, input {
+#search-and-focus, header input {
   width: 100%;
 }
-.input-container {
+#search-and-focus .input-container {
   border: 2px solid rebeccapurple;
   border-radius: 4px;
 }
 
-.input-container > input {
+#search-and-focus .input-container > input {
   padding: 12px 16px 14px;
   border: none;
 }
 
-ul li {
+#search-and-focus ul li {
   cursor: pointer;
   padding: 4px;
 }
-ul li:hover {
-  transition: opacity 15ms linear,background-color 15ms linear;
+#search-and-focus ul li:hover {
+  transition: opacity 15ms linear, background-color 15ms linear;
   background-color: ghostwhite;
   color: rebeccapurple;
+}
+#search-and-focus {
+  overflow: hidden;
+  height: 100%;
+}
+#search-and-focus ul {
+  overflow: scroll;
+  height: inherit;
+}
+
+#search-and-focus .options-panel {
+  display: flex;
+  align-items: center;
 }

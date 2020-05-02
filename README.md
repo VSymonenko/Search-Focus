@@ -16,7 +16,7 @@ This plugin template uses Typescript.
 
 ❌ Update ```List``` if ```Node``` delete
 
-❌ Case Sensitive
+✔️ Case Sensitive
 
 ❌ Match Whole Word
 
