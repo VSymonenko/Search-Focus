@@ -1,5 +1,6 @@
 import { bcrypt } from './share';
 import './ui.css';
+import 'figma-plugin-ds/dist/figma-plugin-ds.css';
 
 const DEBOUNCE_DELAY = 200;
 
@@ -13,19 +14,24 @@ const input = document.createElement('input');
 const optionsPanel = document.createElement('div');
 const header = document.createElement('header');
 const ul = document.createElement('ul');
+const caseWrapper = document.createElement('div');
 const caseInput = document.createElement('input');
 const caseLabel = document.createElement('label');
 let list: FrameKey[] = [];
 
-inputWrapper.className = 'input-container';
+input.className = 'input__field';
+inputWrapper.className = 'input-container input';
 inputWrapper.appendChild(input);
 
 header.appendChild(inputWrapper);
-
+// TODO: cleanup design
+caseWrapper.className = 'checkbox';
 caseInput.type = 'checkbox';
 caseInput.id = 'case-sensitive';
+caseInput.className = 'checkbox__box';
 caseLabel.innerText = 'Case sensitive';
 caseLabel.htmlFor = 'case-sensitive';
+caseLabel.className = 'checkbox__label';
 
 optionsPanel.className = 'options-panel';
 optionsPanel.appendChild(caseInput);

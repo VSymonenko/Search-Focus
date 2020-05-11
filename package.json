@@ -35,6 +35,7 @@
     "webpack-merge": "^4.2.2"
   },
   "dependencies": {
+    "figma-plugin-ds": "^0.1.1",
     "fp-ts": "^2.5.4"
   }
 }
