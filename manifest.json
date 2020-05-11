@@ -3,6 +3,5 @@
   "id": "838752837372119505",
   "api": "1.0.0",
   "main": "./dist/code.js",
-  "ui": "./dist/ui.html",
-  "build": "webpack --mode=production"
+  "ui": "./dist/ui.html"
 }

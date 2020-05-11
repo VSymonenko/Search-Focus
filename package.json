@@ -6,7 +6,7 @@
   "scripts": {
     "dev:ui": "webpack-dev-server --config webpack.dev.js",
     "dev:plugin": "webpack --mode=production --watch",
-    "build": "webpack --mode=production",
+    "build": "webpack --config webpack.prod.js",
     "test": "jest"
   },
   "author": "",
