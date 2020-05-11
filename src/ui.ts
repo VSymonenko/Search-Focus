@@ -15,7 +15,7 @@ const header = document.createElement('header');
 const ul = document.createElement('ul');
 const caseInput = document.createElement('input');
 const caseLabel = document.createElement('label');
-let list: FrameKey[];
+let list: FrameKey[] = [];
 
 inputWrapper.className = 'input-container';
 inputWrapper.appendChild(input);

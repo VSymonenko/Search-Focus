@@ -4,7 +4,7 @@
   "description": "This plugin template uses Typescript. If you are familiar with Javascript, Typescript will look very familiar. In fact, valid Javascript code is already valid Typescript code.",
   "main": "code.js",
   "scripts": {
-    "dev:ui": "webpack-dev-server",
+    "dev:ui": "webpack-dev-server --config webpack.dev.js",
     "dev:plugin": "webpack --mode=production --watch",
     "build": "webpack --mode=production",
     "test": "jest"
@@ -31,7 +31,8 @@
     "vue-style-loader": "^4.1.2",
     "webpack": "^4.42.1",
     "webpack-cli": "^3.3.11",
-    "webpack-dev-server": "^3.10.3"
+    "webpack-dev-server": "^3.11.0",
+    "webpack-merge": "^4.2.2"
   },
   "dependencies": {
     "fp-ts": "^2.5.4"

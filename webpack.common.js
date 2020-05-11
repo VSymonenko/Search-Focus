@@ -1,7 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const path = require('path');
-const webpack = require('webpack');
 
 // https://github.com/facebook/create-react-app/tree/4784997f0682e75eb32a897b4ffe34d735912e6c/packages/react-dev-utils
 class InlineSourceHtmlPlugin {
@@ -45,11 +43,7 @@ class InlineSourceHtmlPlugin {
   }
 }
 
-module.exports = (env, argv) => ({
-  mode: argv.mode === 'production' ? 'production' : 'development',
-
-  // This is necessary because Figma's 'eval' works differently than normal eval
-  devtool: argv.mode === 'production' ? false : 'inline-source-map',
+module.exports = {
 
   entry: {
     ui: './src/ui.ts', // The entry point for your UI code
@@ -82,22 +76,8 @@ module.exports = (env, argv) => ({
     path: path.resolve(__dirname, 'dist'), // Compile into a folder called "dist"
   },
 
-  devServer: {
-    index:  'ui.html',
-    contentBase: path.join(__dirname, 'src'),
-    watchContentBase: true,
-    open: true,
-    port: 8081,
-    hot: true, // hot module replacement. Depends on HotModuleReplacementPlugin
-    noInfo: true,
-    injectHot: true,
-    inline: true,
-    hotOnly: true,
-  },
   // Tells Webpack to generate "ui.html" and to inline "ui.ts" into it
   plugins: [
-    // stub, this plugin crashed production build
-    argv.mode === 'development' ? new webpack.HotModuleReplacementPlugin() : () => {},
     new HtmlWebpackPlugin({
       template: './src/ui.html',
       filename: 'ui.html',
@@ -106,4 +86,4 @@ module.exports = (env, argv) => ({
     }),
     new InlineSourceHtmlPlugin(HtmlWebpackPlugin, ['.(js)$']),
   ],
-})
+};
