@@ -24,3 +24,7 @@
   display: flex;
   align-items: center;
 }
+
+#search-and-focus .checkbox {
+  cursor: pointer;
+}

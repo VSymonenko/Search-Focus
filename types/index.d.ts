@@ -5,4 +5,5 @@ interface FrameKey {
 
 interface FindOptions {
   caseSensitive: boolean;
+  bounderies: boolean;
 }

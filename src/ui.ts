@@ -6,6 +6,7 @@ const DEBOUNCE_DELAY = 200;
 
 const options: FindOptions = {
   caseSensitive: false,
+  bounderies: false,
 }
 
 const sf = document.getElementById('search-and-focus');
@@ -17,6 +18,9 @@ const ul = document.createElement('ul');
 const caseWrapper = document.createElement('div');
 const caseInput = document.createElement('input');
 const caseLabel = document.createElement('label');
+const bounderiesWrapper = document.createElement('div');
+const bounderiesInput = document.createElement('input');
+const bounderiesLabel = document.createElement('label');
 let list: FrameKey[] = [];
 
 input.className = 'input__field';
@@ -33,13 +37,32 @@ caseLabel.innerText = 'Case sensitive';
 caseLabel.htmlFor = 'case-sensitive';
 caseLabel.className = 'checkbox__label';
 
+bounderiesWrapper.className = 'checkbox';
+bounderiesInput.type = 'checkbox';
+bounderiesInput.id = 'bounderies-switch';
+bounderiesInput.className = 'checkbox__box';
+bounderiesLabel.innerText = 'Match Whole Word';
+bounderiesLabel.htmlFor = 'bounderies-switch';
+bounderiesLabel.className = 'checkbox__label';
+
 optionsPanel.className = 'options-panel';
-optionsPanel.appendChild(caseInput);
-optionsPanel.appendChild(caseLabel);
+optionsPanel.appendChild(caseWrapper);
+caseWrapper.appendChild(caseInput);
+caseWrapper.appendChild(caseLabel);
+optionsPanel.appendChild(bounderiesWrapper);
+bounderiesWrapper.appendChild(bounderiesInput);
+bounderiesWrapper.appendChild(bounderiesLabel);
 
 caseInput.addEventListener('change', (event) => {
   if (event.target instanceof HTMLInputElement) {
     options.caseSensitive = event.target.checked;
+    updateList(event);
+  }
+})
+
+bounderiesInput.addEventListener('change', (event) => {
+  if (event.target instanceof HTMLInputElement) {
+    options.bounderies = event.target.checked;
     updateList(event);
   }
 })
@@ -58,8 +81,12 @@ input.placeholder = 'type for searching';
 
 const find = (items: FrameKey[], value: string): FrameKey[] => {
   return items
-    ?.filter(({name}) => {
+    .filter(({name}) => {
       return options.caseSensitive ? name.includes(value) : name.toLocaleLowerCase().includes(value.toLocaleLowerCase());
+    })
+    .filter(({name}) => {
+      const regex = new RegExp(`\\b${value.toLowerCase()}\\b`);
+      return options.bounderies ? regex.test(name.toLowerCase()) : true;
     });
 };
 
@@ -95,6 +122,7 @@ const updateList = (event: Event) => {
     if (value.length <= 1) {
       return;
     } else {
+      console.log('find');
       result = find(list, value);
       result.forEach((item) => {
         const li = document.createElement('li');
