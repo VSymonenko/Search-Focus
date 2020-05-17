@@ -1,6 +1,6 @@
 This plugin uses Typescript.
 
-[demo](https://i.imgur.com/aZTTqRm.gifv)
+![demo](https://i.imgur.com/aZTTqRm.gif)
 
 ## Description
 
