@@ -25,6 +25,9 @@
   align-items: center;
 }
 
-#search-and-focus .checkbox {
+#search-and-focus label {
   cursor: pointer;
+}
+#search-and-focus .checkbox__label:before {
+  margin: -1px 10px 0 -8px;
 }
