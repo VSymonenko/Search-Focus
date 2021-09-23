@@ -15,16 +15,14 @@ module.exports = merge(common, {
   devtool: 'inline-source-map',
 
   devServer: {
-    index: 'ui.html',
-    contentBase: path.join(__dirname, 'src'),
-    watchContentBase: true,
     open: true,
     port: 8081,
-    hot: true, // hot module replacement. Depends on HotModuleReplacementPlugin
-    noInfo: true,
-    injectHot: true,
-    inline: true,
-    hotOnly: true,
+    hot: 'only', // hot module replacement. Depends on HotModuleReplacementPlugin
+    static: {
+      serveIndex: true,
+      directory: path.join(__dirname, 'src'),
+      watch: true,
+    },
   },
   plugins: [
     new HtmlWebpackPlugin({

@@ -15,7 +15,7 @@ class InlineSourceHtmlPlugin {
     const scriptName = publicPath
       ? tag.attributes.src.replace(publicPath, '')
       : tag.attributes.src;
-    if (!this.tests.some(test => scriptName.match(test))) {
+    if (!this.tests.some((test) => scriptName.match(test))) {
       return tag;
     }
     const asset = assets[scriptName];
@@ -31,11 +31,11 @@ class InlineSourceHtmlPlugin {
       publicPath += '/';
     }
 
-    compiler.hooks.compilation.tap('InlineSourceHtmlPlugin', compilation => {
-      const tagFunction = tag =>
+    compiler.hooks.compilation.tap('InlineSourceHtmlPlugin', (compilation) => {
+      const tagFunction = (tag) =>
         this.getInlinedTag(publicPath, compilation.assets, tag);
       const hooks = this.htmlWebpackPlugin.getHooks(compilation);
-      hooks.alterAssetTagGroups.tap('InlineChunkHtmlPlugin', assets => {
+      hooks.alterAssetTagGroups.tap('InlineChunkHtmlPlugin', (assets) => {
         assets.headTags = assets.headTags.map(tagFunction);
         assets.bodyTags = assets.bodyTags.map(tagFunction);
       });
@@ -44,7 +44,6 @@ class InlineSourceHtmlPlugin {
 }
 
 module.exports = {
-
   entry: {
     ui: './src/ui.ts', // The entry point for your UI code
     code: './src/code.ts', // The entry point for your plugin code
@@ -56,14 +55,17 @@ module.exports = {
       { test: /\.tsx?$/, use: 'ts-loader', exclude: /node_modules/ },
 
       // Enables including CSS by doing "import './file.css'" in your TypeScript code
-      { test: /\.css$/, loader: [{ loader: 'style-loader' }, { loader: 'css-loader' }] },
+      {
+        test: /\.css$/,
+        use: [{ loader: 'style-loader' }, { loader: 'css-loader' }],
+      },
 
       // Allows you to use "<%= require('./file.svg') %>" in your HTML code to get a data URI
-      { test: /\.(png|jpg|gif|webp|svg)$/, loader: [{ loader: 'url-loader' }] },
+      { test: /\.(png|jpg|gif|webp|svg)$/, use: [{ loader: 'url-loader' }] },
 
       {
         test: /\.html$/,
-        loader: 'html-loader',
+        use: 'html-loader',
       },
     ],
   },
