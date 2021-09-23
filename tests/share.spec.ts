@@ -1,6 +1,6 @@
 import { bcrypt } from '../src/share';
 
-test('chould be bedirectional transform', () => {
+test('should be bidirectional transform', () => {
   const key = {
     name: 'test',
     id: '1',
@@ -17,4 +17,4 @@ test('chould be bedirectional transform', () => {
       id: '1',
     })
   );
-})
+});
