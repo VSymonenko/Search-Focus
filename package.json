@@ -16,7 +16,6 @@
     "clean-webpack-plugin": "^4.0.0",
     "css-loader": "^6.3.0",
     "deepmerge": "^4.2.2",
-    "fibers": "^5.0.0",
     "html-loader": "^2.1.2",
     "html-webpack-inline-source-plugin": "0.0.10",
     "html-webpack-plugin": "^5.3.2",
