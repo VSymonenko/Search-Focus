@@ -6,15 +6,16 @@ Project Description
 
 ### Todo
 
+- [ ] replace jest with vitest  
+- [ ] remove unused dependecies  
 - [ ] update type definitions  
 - [ ] add linter  
 - [ ] update plugin manifeset  
 - [ ] Migrating Plugins to Dynamically Load Pages  
-- [ ] migrate to esbuild  
 
 ### In Progress
 
-- [ ] remove unused dependecies  
+- [ ] migrate to vite  
 
 ### Done ✓
 
