@@ -1,3 +1,5 @@
+/// <reference types="../node_modules/@figma/plugin-typings" />
+
 import { bcrypt } from './share';
 
 // This shows the HTML page in "ui.html".

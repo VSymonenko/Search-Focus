@@ -21,7 +21,11 @@
     "skipLibCheck": true,
     "allowUnreachableCode": true,
     "moduleResolution": "node",
-    "types": ["node", "jest"]
+    "types": ["node", "jest"],
+    "typeRoots": [
+      "./node_modules/@types",
+      "./node_modules/@figma"
+    ]
   },
   "paths": {
     "@/*": [
