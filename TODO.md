@@ -8,7 +8,6 @@ Project Description
 
 - [ ] replace jest with vitest  
 - [ ] remove unused dependecies  
-- [ ] add linter  
 - [ ] update plugin manifeset  
 - [ ] Migrating Plugins to Dynamically Load Pages  
 
@@ -17,6 +16,7 @@ Project Description
 
 ### Done ✓
 
+- [x] add linter  
 - [x] update type definitions  
 - [x] migrate to vite  
 

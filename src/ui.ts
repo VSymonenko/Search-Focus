@@ -1,6 +1,7 @@
-import { bcrypt } from './share';
 import './ui.css';
 import 'figma-plugin-ds/dist/figma-plugin-ds.css';
+
+import { bcrypt } from './share';
 
 const DEBOUNCE_DELAY = 200;
 
@@ -104,9 +105,9 @@ const focusOnFrame = (frame: FrameKey) => {
   }}, '*');
 };
 
-const debounce = (cb: Function, delay: number = DEBOUNCE_DELAY) => {
+const debounce = <T>(cb: (...args: T[]) => void, delay: number = DEBOUNCE_DELAY) => {
   let id: NodeJS.Timeout;
-  return (...args: any[]) => {
+  return (...args: T[]) => {
     clearTimeout(id);
     id = setTimeout(() => {
       cb(...args);
