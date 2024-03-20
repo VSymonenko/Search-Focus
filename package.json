@@ -10,7 +10,10 @@
     "test:watch": "vitest",
     "lint": "eslint src"
   },
-  "author": "",
+  "author": {
+    "name": "V.Symonenko",
+    "email": "simonenko744@gmail.com"
+  },
   "license": "ISC",
   "devDependencies": {
     "@figma/eslint-plugin-figma-plugins": "^0.15.0",
