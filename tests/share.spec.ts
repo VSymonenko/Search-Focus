@@ -1,3 +1,5 @@
+import { expect, test } from 'vitest';
+
 import { bcrypt } from '../src/share';
 
 test('should be bidirectional transform', () => {

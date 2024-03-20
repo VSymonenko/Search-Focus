@@ -6,7 +6,6 @@ Project Description
 
 ### Todo
 
-- [ ] replace jest with vitest  
 - [ ] update plugin manifeset  
 - [ ] Migrating Plugins to Dynamically Load Pages  
 
@@ -15,6 +14,7 @@ Project Description
 
 ### Done ✓
 
+- [x] replace jest with vitest  
 - [x] update deps  
 - [x] remove unused dependecies  
 - [x] add linter  
