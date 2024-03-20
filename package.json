@@ -1,7 +1,7 @@
 {
   "name": "ff",
   "version": "1.3.0",
-  "description": "This plugin template uses Typescript. If you are familiar with Javascript, Typescript will look very familiar. In fact, valid Javascript code is already valid Typescript code.",
+  "description": "Focusing on your search results in Figma",
   "main": "code.js",
   "scripts": {
     "dev": "vite serve",
@@ -28,5 +28,12 @@
   },
   "dependencies": {
     "figma-plugin-ds": "^1.0.1"
-  }
+  },
+  "keywords": [
+    "figma",
+    "plugin",
+    "search",
+    "find",
+    "focus"
+  ]
 }
