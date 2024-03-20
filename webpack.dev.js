@@ -27,9 +27,10 @@ module.exports = merge(common, {
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/ui.html',
-      filename: 'ui.html',
+      // filename: 'ui.html',
       inlineSource: '.(js)$',
-      chunks: ['ui', 'playground'],
+      // chunks: ['ui', 'playground'],
+      chunks: ['playground'],
     }),
     // stub, this plugin crashed production build
     new webpack.HotModuleReplacementPlugin(),

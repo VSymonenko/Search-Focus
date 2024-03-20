@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es6",
+    "target": "es5",
     "module":"ESNext",
     "strict": true,
     "strictNullChecks": true,
@@ -21,7 +21,7 @@
     "skipLibCheck": true,
     "allowUnreachableCode": true,
     "moduleResolution": "node",
-    "types": ["node", "jest"],
+    "types": ["node", "jest"]
   },
   "paths": {
     "@/*": [
