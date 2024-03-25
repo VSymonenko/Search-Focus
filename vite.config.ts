@@ -101,6 +101,9 @@ function vitePlugin({ target, code }): PluginOption {
 
 export default defineConfig({
   publicDir: false,
+  test: {
+    setupFiles: ['./setup/figmaRuntimeStub.ts'],
+  },
   plugins: [
     vitePlugin({
       target: DEFAULT_TARGET,
