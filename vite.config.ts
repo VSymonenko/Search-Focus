@@ -29,8 +29,8 @@ async function buildCode () {
         lib: {
           entry: path.resolve(process.cwd(), DEFAULT_CODE),
           name: 'code',
-          fileName: 'code',
-          formats: ['cjs'],
+          fileName: () => 'code.js',
+          formats: ['umd'],
         },
       }
     });
