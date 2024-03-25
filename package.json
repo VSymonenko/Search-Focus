@@ -4,7 +4,8 @@
   "description": "Focusing on your search results in Figma",
   "main": "code.js",
   "scripts": {
-    "dev": "vite serve",
+    "dev": "vite build -w",
+    "dev:playground": "vite serve",
     "build": "vite build",
     "test": "vitest --run",
     "test:watch": "vitest",
