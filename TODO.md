@@ -6,14 +6,17 @@ Project Description
 
 ### Todo
 
+- [ ] update contributor documentation  
+- [ ] feat: add fuzy search  
 - [ ] Migrating Plugins to Dynamically Load Pages  
 
 ### In Progress
 
-- [ ] publish new version  
+- [ ] fix github release notes  
 
 ### Done ✓
 
+- [x] publish new version  
 - [x] add gh action for unit tests  
 - [x] update plugin manifeset  
 - [x] replace jest with vitest  
