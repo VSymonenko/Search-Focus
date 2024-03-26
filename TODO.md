@@ -6,15 +6,15 @@ Project Description
 
 ### Todo
 
-- [ ] update contributor documentation  
 - [ ] feat: add fuzy search  
-- [ ] Migrating Plugins to Dynamically Load Pages  
 
 ### In Progress
 
 
 ### Done ✓
 
+- [x] Migrating Plugins to Dynamically Load Pages  
+- [x] update contributor documentation  
 - [x] fix github release notes  
 - [x] publish new version  
 - [x] add gh action for unit tests  

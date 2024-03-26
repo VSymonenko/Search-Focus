@@ -43,5 +43,9 @@
     "search",
     "find",
     "focus"
-  ]
+  ],
+  "engines": {
+    "node": ">=21.6.2",
+    "npm": ">=10.2.4"
+  }
 }
