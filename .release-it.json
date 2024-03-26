@@ -10,7 +10,8 @@
     "after:release": "echo 'Your release notes here.'"
   },
   "github": {
-    "release": true
+    "release": true,
+    "assets": ["dist/*.zip"]
   },
   "npm": {
     "publish": false
