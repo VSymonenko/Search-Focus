@@ -11,6 +11,7 @@ Project Description
 
 ### In Progress
 
+- [ ] add gh action for unit tests  
 
 ### Done ✓
 
