@@ -11,7 +11,7 @@
   },
   "github": {
     "release": true,
-    "assets": ["dist/*.zip"]
+    "assets": ["dist/**/*"]
   },
   "npm": {
     "publish": false
