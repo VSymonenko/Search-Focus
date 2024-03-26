@@ -7,14 +7,14 @@ Project Description
 ### Todo
 
 - [ ] Migrating Plugins to Dynamically Load Pages  
-- [ ] publish new version  
 
 ### In Progress
 
-- [ ] add gh action for unit tests  
+- [ ] publish new version  
 
 ### Done ✓
 
+- [x] add gh action for unit tests  
 - [x] update plugin manifeset  
 - [x] replace jest with vitest  
 - [x] update deps  
