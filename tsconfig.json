@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "ESNext",
     "module":"ESNext",
     "strict": true,
     "strictNullChecks": true,
@@ -21,7 +21,7 @@
     "skipLibCheck": true,
     "allowUnreachableCode": true,
     "moduleResolution": "node",
-    "types": ["node"],
+    "types": ["node", "vitest/globals", "vite/client"],
     "typeRoots": [
       "./node_modules/@types",
       "./node_modules/@figma"

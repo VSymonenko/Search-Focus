@@ -22,16 +22,24 @@ const isRollupAsset = (value: any): value is rollup.OutputAsset => {
 
 const ERROR_MISSING_JS_IN_TEMPLATE = `No script tag found in ${DEFAULT_TARGET}`;
 
-async function buildCode () {
+// build files that do not directly imported
+// TODO: maybe we can use this.addWatchFile() for this 
+// see https://rollupjs.org/plugin-development/#this-addwatchfile
+async function buildCode (_watch = null) {
+  const watch = _watch && { watch: {
+    include: DEFAULT_CODE,
+  } };
   try {
-    await build({
+    return build({
       build: {
+        emptyOutDir: false,
         lib: {
           entry: path.resolve(process.cwd(), DEFAULT_CODE),
           name: 'code',
           fileName: () => 'code.js',
           formats: ['umd'],
         },
+        watch,
       }
     });
   } catch (err) {
@@ -40,8 +48,12 @@ async function buildCode () {
 }
 
 function vitePlugin({ target, code }): PluginOption {
+  let config;
   return {
     name: 'vite-plugin',
+    configResolved(resolvedConfig) {
+      config = resolvedConfig;
+    },
     async generateBundle(opts, bundle) {
       const fileId = Array.from(this.getModuleIds())[0];
       if (!fileId.includes(DEFAULT_TARGET)) { return }
@@ -79,6 +91,8 @@ function vitePlugin({ target, code }): PluginOption {
           }
           htmlparser2.DomUtils.replaceElement(child, newScript);
           const result = render(dom);
+          const { watch } = config.build;
+          await buildCode(watch);
           this.emitFile({
             type: 'asset',
             fileName: DEFAULT_TARGET,
@@ -88,7 +102,6 @@ function vitePlugin({ target, code }): PluginOption {
       } catch (err) {
         this.error(err);
       }
-      await buildCode();
     },
     async closeBundle() {
       await rm(path.resolve(process.cwd(), 'dist/assets'), { recursive: true, force: true });
