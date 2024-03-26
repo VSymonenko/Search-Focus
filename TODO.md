@@ -12,10 +12,10 @@ Project Description
 
 ### In Progress
 
-- [ ] fix github release notes  
 
 ### Done ✓
 
+- [x] fix github release notes  
 - [x] publish new version  
 - [x] add gh action for unit tests  
 - [x] update plugin manifeset  
