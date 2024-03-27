@@ -123,7 +123,6 @@ const updateList = (event: Event) => {
     if (value.length <= 1) {
       return;
     } else {
-      console.log('find');
       result = find(list, value);
       result.forEach((item) => {
         const li = document.createElement('li');
