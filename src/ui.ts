@@ -80,10 +80,12 @@ onmessage = (event) => {
 input.type = 'search';
 input.placeholder = 'type for searching';
 
-const find = (items: FrameKey[], value: string): FrameKey[] => {
+export const find = (items: FrameKey[], value: string): FrameKey[] => {
   return items
     .filter(({name}) => {
-      return options.caseSensitive ? name.includes(value) : name.toLocaleLowerCase().includes(value.toLocaleLowerCase());
+      return options.caseSensitive
+        ? name.includes(value)
+        : name.toLocaleLowerCase().includes(value.toLocaleLowerCase());
     })
     .filter(({name}) => {
       const regex = new RegExp(`\\b${value.toLowerCase()}\\b`);
@@ -91,13 +93,13 @@ const find = (items: FrameKey[], value: string): FrameKey[] => {
     });
 };
 
-const clearNode = (node: Node) => {
+export const clearNode = (node: Node) => {
   while (node.lastChild) {
     node.removeChild(node.lastChild);
   }
 };
 
-const focusOnFrame = (frame: FrameKey) => {
+export const focusOnFrame = (frame: FrameKey) => {
   const key = bcrypt(frame);
   parent.postMessage({ pluginMessage: {
     type: 'focus',
@@ -105,7 +107,10 @@ const focusOnFrame = (frame: FrameKey) => {
   }}, '*');
 };
 
-const debounce = <T>(cb: (...args: T[]) => void, delay: number = DEBOUNCE_DELAY) => {
+type Debounce = <T>(cb: (...args: T[]) => void, delay?: number) =>
+  (...args: T[]) => void;
+
+export const debounce: Debounce = (cb, delay = DEBOUNCE_DELAY) => {
   let id: NodeJS.Timeout;
   return (...args: T[]) => {
     clearTimeout(id);
@@ -115,7 +120,7 @@ const debounce = <T>(cb: (...args: T[]) => void, delay: number = DEBOUNCE_DELAY)
   } 
 };
 
-const updateList = (event: Event) => {
+export const updateList = (event: Event) => {
   clearNode(ul);
   if (event.target instanceof HTMLInputElement) {
     const { value } = input;

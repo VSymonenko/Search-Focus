@@ -10,5 +10,8 @@ module.exports = {
     project: './tsconfig.json',
   },
   root: true,
-  ignorePatterns: ['*.d.ts']
+  ignorePatterns: ['*.d.ts'],
+  rules: {
+    'max-len': ['error', { code: 85 }],
+  }
 }

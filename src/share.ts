@@ -9,6 +9,9 @@ const decription = (key: string, separator: string): FrameKey => {
   return { name, id };
 }
 
-export const bcrypt = (key: string | FrameKey, separator: string = delimiter): string | FrameKey => {
-  return (typeof key === 'string') ? decription(key, separator) : encription(key, separator);
+type Bcrypt = (key: string | FrameKey, separator?: string) => string | FrameKey;
+export const bcrypt: Bcrypt = (key, separator = delimiter): string | FrameKey => {
+  return (typeof key === 'string')
+    ? decription(key, separator)
+    : encription(key, separator);
 }
