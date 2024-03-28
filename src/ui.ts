@@ -5,6 +5,10 @@ import { bcrypt } from './share';
 
 const DEBOUNCE_DELAY = 200;
 
+export type FindOptions = {
+  caseSensitive: boolean;
+  bounderies: boolean;
+};
 const options: FindOptions = {
   caseSensitive: false,
   bounderies: false,
@@ -80,16 +84,17 @@ onmessage = (event) => {
 input.type = 'search';
 input.placeholder = 'type for searching';
 
-export const find = (items: FrameKey[], value: string): FrameKey[] => {
+type Find = (items: FrameKey[], value: string, options?: FindOptions) => FrameKey[];
+export const find: Find = (items, value, _options = options): FrameKey[] => {
   return items
     .filter(({name}) => {
-      return options.caseSensitive
+      return _options.caseSensitive
         ? name.includes(value)
         : name.toLocaleLowerCase().includes(value.toLocaleLowerCase());
     })
     .filter(({name}) => {
       const regex = new RegExp(`\\b${value.toLowerCase()}\\b`);
-      return options.bounderies ? regex.test(name.toLowerCase()) : true;
+      return _options.bounderies ? regex.test(name.toLowerCase()) : true;
     });
 };
 
