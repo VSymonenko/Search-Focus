@@ -10,7 +10,8 @@
     "test": "vitest --run",
     "test:watch": "vitest",
     "lint": "eslint src",
-    "release": "dotenv release-it --"
+    "release": "dotenv release-it --",
+    "test:types": "tsc --noEmit"
   },
   "author": {
     "name": "V.Symonenko",
