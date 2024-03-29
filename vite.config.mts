@@ -1,3 +1,5 @@
+/// <reference types="vitest" />
+
 import * as htmlparser2 from 'htmlparser2';
 
 import { PluginOption, build, defineConfig } from 'vite';
@@ -116,6 +118,7 @@ export default defineConfig({
   publicDir: false,
   test: {
     setupFiles: ['./setup/figmaRuntimeStub.ts'],
+    environment: 'jsdom',
   },
   plugins: [
     vitePlugin({

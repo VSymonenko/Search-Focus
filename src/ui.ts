@@ -112,12 +112,12 @@ export const focusOnFrame = (frame: FrameKey) => {
   }}, '*');
 };
 
-type Debounce = <T>(cb: (...args: T[]) => void, delay?: number) =>
-  (...args: T[]) => void;
+type Debounce = <T extends unknown[]>(cb: (...args: T) => void, delay?: number) =>
+  (...args: T) => void;
 
 export const debounce: Debounce = (cb, delay = DEBOUNCE_DELAY) => {
   let id: NodeJS.Timeout;
-  return (...args: T[]) => {
+  return (...args) => {
     clearTimeout(id);
     id = setTimeout(() => {
       cb(...args);

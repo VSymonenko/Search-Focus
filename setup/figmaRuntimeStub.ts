@@ -20,6 +20,11 @@ Object.defineProperties(globalThis, {
     },
   },
   __html__: {
-    value: '',
+    value: '__html__',
+  },
+  parent: {
+    value: {
+      postMessage: () => 'postMessage',
+    },
   },
 });

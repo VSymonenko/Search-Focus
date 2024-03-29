@@ -21,7 +21,7 @@
     "skipLibCheck": true,
     "allowUnreachableCode": true,
     "moduleResolution": "node",
-    "types": ["node", "vitest/globals", "vite/client"],
+    "types": ["node"],
     "typeRoots": [
       "./node_modules/@types",
       "./node_modules/@figma"
@@ -35,10 +35,10 @@
   "include": [
     "src/**/*",
     "types",
-    "figma-quokka-plugin"
+    "figma-quokka-plugin", 
+    "tests/*"
   ],
   "exclude": [
     "node_modules",
-    "**/*.spec.ts"
   ]
 }
