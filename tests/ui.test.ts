@@ -1,5 +1,6 @@
 import {
   FindOptions,
+  appendList,
   clearNode,
   debounce,
   find,
@@ -68,4 +69,12 @@ describe('debounce', () => {
     vi.advanceTimersByTime(DELAY + 1);
     expect(mock).toHaveBeenCalledTimes(1);
   });
+});
+
+test('should be appending list', () => {
+  const ul = document.createElement('ul');
+  const list = [{ name: 'foo' }, { name: 'bar' }] as FrameKey[];
+  const spy = vi.spyOn(ul, 'appendChild');
+  appendList(list, ul);
+  expect(spy).toHaveBeenCalledTimes(2);
 });

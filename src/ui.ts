@@ -125,6 +125,16 @@ export const debounce: Debounce = (cb, delay = DEBOUNCE_DELAY) => {
   } 
 };
 
+export const appendList = (list: FrameKey[], _ul = ul) => {
+  list.forEach((item) => {
+    const li = document.createElement('li');
+    li.textContent = item.name;
+    li.addEventListener('click', () => focusOnFrame(item));
+    _ul.appendChild(li);
+  });
+};
+
+
 export const updateList = (event: Event) => {
   clearNode(ul);
   if (event.target instanceof HTMLInputElement) {
@@ -134,12 +144,7 @@ export const updateList = (event: Event) => {
       return;
     } else {
       result = find(list, value);
-      result.forEach((item) => {
-        const li = document.createElement('li');
-        li.textContent = item.name;
-        li.addEventListener('click', () => focusOnFrame(item));
-        ul.appendChild(li);
-      });
+      appendList(result);
     }
   }
 };
