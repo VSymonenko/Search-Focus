@@ -1,6 +1,8 @@
 import './ui.css';
 import 'figma-plugin-ds/dist/figma-plugin-ds.css';
 
+import * as u from './utils';
+
 import { bcrypt } from './share';
 
 const DEBOUNCE_DELAY = 200;
@@ -59,18 +61,18 @@ bounderiesWrapper.appendChild(bounderiesInput);
 bounderiesWrapper.appendChild(bounderiesLabel);
 
 caseInput.addEventListener('change', (event) => {
-  if (event.target instanceof HTMLInputElement) {
+  if (u.isInputTarget(event.target)) {
     options.caseSensitive = event.target.checked;
     updateList(event);
   }
-})
+});
 
 bounderiesInput.addEventListener('change', (event) => {
-  if (event.target instanceof HTMLInputElement) {
+  if (u.isInputTarget(event.target)) {
     options.bounderies = event.target.checked;
     updateList(event);
   }
-})
+});
 
 onmessage = (event) => {
   if (event.data.pluginMessage) {
@@ -137,7 +139,7 @@ export const appendList = (list: FrameKey[], _ul = ul) => {
 
 export const updateList = (event: Event) => {
   clearNode(ul);
-  if (event.target instanceof HTMLInputElement) {
+  if (u.isInputTarget(event.target)) {
     const { value } = input;
     let result: FrameKey[];
     if (value.length <= 1) {
@@ -148,6 +150,7 @@ export const updateList = (event: Event) => {
     }
   }
 };
+
 const updated = debounce(updateList);
 input.addEventListener('input', updated);
 
