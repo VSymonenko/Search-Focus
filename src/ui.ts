@@ -42,14 +42,14 @@ const caseWrapper = u.createElement('div', { className: 'checkbox' });
 caseWrapper.appendChild(caseInput);
 caseWrapper.appendChild(caseLabel);
 const bounderiesWrapper = u.createElement('div', { className: 'checkbox' });
-const bounderiesInput = document.createElement('input');
+const bounderiesInput = u.createElement('input', {
+  type: 'checkbox',
+  id: 'bounderies-switch',
+  className: 'checkbox__box',
+});
 const bounderiesLabel = document.createElement('label');
 let list: FrameKey[] = [];
 
-
-bounderiesInput.type = 'checkbox';
-bounderiesInput.id = 'bounderies-switch';
-bounderiesInput.className = 'checkbox__box';
 bounderiesLabel.innerText = 'Match Whole Word';
 bounderiesLabel.htmlFor = 'bounderies-switch';
 bounderiesLabel.className = 'checkbox__label';
