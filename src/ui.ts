@@ -24,7 +24,7 @@ const inputWrapper = u.createElement('div', {
 inputWrapper.appendChild(input);
 
 const root = document.getElementById('search-and-focus');
-const optionsPanel = document.createElement('div');
+const optionsPanel = u.createElement('div', { className: 'options-panel' });
 const header = document.createElement('header');
 header.appendChild(inputWrapper);
 const ul = document.createElement('ul');
@@ -54,7 +54,6 @@ const bounderiesLabel = u.createElement('label', {
 });
 let list: FrameKey[] = [];
 
-optionsPanel.className = 'options-panel';
 optionsPanel.appendChild(caseWrapper);
 optionsPanel.appendChild(bounderiesWrapper);
 bounderiesWrapper.appendChild(bounderiesInput);
