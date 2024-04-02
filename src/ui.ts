@@ -33,7 +33,11 @@ const caseInput = u.createElement('input', {
   id: 'case-sensitive',
   className: 'checkbox__box',
 });
-const caseLabel = document.createElement('label');
+const caseLabel = u.createElement('label', {
+  className: 'checkbox__label',
+  htmlFor: 'case-sensitive',
+  innerText: 'Case sensitive',
+});
 const caseWrapper = u.createElement('div', { className: 'checkbox' });
 caseWrapper.appendChild(caseInput);
 caseWrapper.appendChild(caseLabel);
@@ -42,9 +46,6 @@ const bounderiesInput = document.createElement('input');
 const bounderiesLabel = document.createElement('label');
 let list: FrameKey[] = [];
 
-caseLabel.innerText = 'Case sensitive';
-caseLabel.htmlFor = 'case-sensitive';
-caseLabel.className = 'checkbox__label';
 
 bounderiesWrapper.className = 'checkbox';
 bounderiesInput.type = 'checkbox';
