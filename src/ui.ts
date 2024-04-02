@@ -12,9 +12,14 @@ const options: FindOptions = {
   bounderies: false,
 }
 
-const sf = document.getElementById('search-and-focus');
+const input = u.createElement('input', {
+  type: 'search',
+  placeholder: 'type for searching',
+  className: 'input__field',
+});
+
+const root = document.getElementById('search-and-focus');
 const inputWrapper = document.createElement('div');
-const input = document.createElement('input');
 const optionsPanel = document.createElement('div');
 const header = document.createElement('header');
 const ul = document.createElement('ul');
@@ -26,7 +31,6 @@ const bounderiesInput = document.createElement('input');
 const bounderiesLabel = document.createElement('label');
 let list: FrameKey[] = [];
 
-input.className = 'input__field';
 inputWrapper.className = 'input-container input';
 inputWrapper.appendChild(input);
 
@@ -89,9 +93,6 @@ onmessage = (event) => {
     }
   }
 };
-
-input.type = 'search';
-input.placeholder = 'type for searching';
 
 type Find = (items: FrameKey[], value: string, _options?: FindOptions) => FrameKey[];
 export const find: Find = (items, value, _options = options): FrameKey[] => {
@@ -161,5 +162,5 @@ const updated = debounce(updateList);
 input.addEventListener('input', updated);
 
 [header, optionsPanel, ul].forEach(item => {
-  sf?.append(item);
+  root?.append(item);
 });
