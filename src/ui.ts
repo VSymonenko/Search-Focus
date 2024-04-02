@@ -7,10 +7,6 @@ import { bcrypt } from './share';
 
 const DEBOUNCE_DELAY = 200;
 
-export type FindOptions = {
-  caseSensitive: boolean;
-  bounderies: boolean;
-};
 const options: FindOptions = {
   caseSensitive: false,
   bounderies: false,
