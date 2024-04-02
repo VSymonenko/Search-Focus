@@ -18,8 +18,13 @@ const input = u.createElement('input', {
   className: 'input__field',
 });
 
+const inputWrapper = u.createElement('div', {
+  className: 'input-container input',
+})
+.appendChild(input);
+
 const root = document.getElementById('search-and-focus');
-const inputWrapper = document.createElement('div');
+// const inputWrapper = document.createElement('div');
 const optionsPanel = document.createElement('div');
 const header = document.createElement('header');
 const ul = document.createElement('ul');
@@ -30,9 +35,6 @@ const bounderiesWrapper = document.createElement('div');
 const bounderiesInput = document.createElement('input');
 const bounderiesLabel = document.createElement('label');
 let list: FrameKey[] = [];
-
-inputWrapper.className = 'input-container input';
-inputWrapper.appendChild(input);
 
 header.appendChild(inputWrapper);
 // TODO: cleanup design
