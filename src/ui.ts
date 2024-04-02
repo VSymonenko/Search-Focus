@@ -29,16 +29,16 @@ const optionsPanel = document.createElement('div');
 const header = document.createElement('header')
   .appendChild(inputWrapper);
 const ul = document.createElement('ul');
-const caseWrapper = document.createElement('div');
 const caseInput = document.createElement('input');
 const caseLabel = document.createElement('label');
+const caseWrapper = u.createElement('div', { className: 'checkbox' })
+  .appendChild(caseInput)
+  .appendChild(caseLabel);
 const bounderiesWrapper = document.createElement('div');
 const bounderiesInput = document.createElement('input');
 const bounderiesLabel = document.createElement('label');
 let list: FrameKey[] = [];
 
-// TODO: cleanup design
-caseWrapper.className = 'checkbox';
 caseInput.type = 'checkbox';
 caseInput.id = 'case-sensitive';
 caseInput.className = 'checkbox__box';
@@ -56,8 +56,6 @@ bounderiesLabel.className = 'checkbox__label';
 
 optionsPanel.className = 'options-panel';
 optionsPanel.appendChild(caseWrapper);
-caseWrapper.appendChild(caseInput);
-caseWrapper.appendChild(caseLabel);
 optionsPanel.appendChild(bounderiesWrapper);
 bounderiesWrapper.appendChild(bounderiesInput);
 bounderiesWrapper.appendChild(bounderiesLabel);
