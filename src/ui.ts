@@ -21,12 +21,13 @@ const input = u.createElement('input', {
 const inputWrapper = u.createElement('div', {
   className: 'input-container input',
 })
-.appendChild(input);
+  .appendChild(input);
 
 const root = document.getElementById('search-and-focus');
 // const inputWrapper = document.createElement('div');
 const optionsPanel = document.createElement('div');
-const header = document.createElement('header');
+const header = document.createElement('header')
+  .appendChild(inputWrapper);
 const ul = document.createElement('ul');
 const caseWrapper = document.createElement('div');
 const caseInput = document.createElement('input');
@@ -36,7 +37,6 @@ const bounderiesInput = document.createElement('input');
 const bounderiesLabel = document.createElement('label');
 let list: FrameKey[] = [];
 
-header.appendChild(inputWrapper);
 // TODO: cleanup design
 caseWrapper.className = 'checkbox';
 caseInput.type = 'checkbox';
