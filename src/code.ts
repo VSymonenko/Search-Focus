@@ -7,14 +7,14 @@ figma.showUI(__html__);
 
 const map = new Map<string, SceneNode>();
 
-type CreateMap = (root: readonly SceneNode[], map: Map<string, SceneNode>) => void;
+type CreateMap = (root: readonly SceneNode[], _map: Map<string, SceneNode>) => void;
 
-export const createMapRecursive: CreateMap = (root, map) => {
+export const createMapRecursive: CreateMap = (root, _map) => {
   root.forEach((node: SceneNode) => {
     const key = bcrypt({name: node.name, id: node.id}) as string;
-    map.set(key, node);
+    _map.set(key, node);
     if ('children' in node) {
-      createMapRecursive(node.children, map);
+      createMapRecursive(node.children, _map);
     }
   });
 };

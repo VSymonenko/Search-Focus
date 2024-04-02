@@ -97,7 +97,7 @@ onmessage = (event) => {
 input.type = 'search';
 input.placeholder = 'type for searching';
 
-type Find = (items: FrameKey[], value: string, options?: FindOptions) => FrameKey[];
+type Find = (items: FrameKey[], value: string, _options?: FindOptions) => FrameKey[];
 export const find: Find = (items, value, _options = options): FrameKey[] => {
   return items
     .filter(({name}) => {
@@ -138,8 +138,8 @@ export const debounce: Debounce = (cb, delay = DEBOUNCE_DELAY) => {
   } 
 };
 
-export const appendList = (list: FrameKey[], _ul = ul) => {
-  list.forEach((item) => {
+export const appendList = (_list: FrameKey[], _ul = ul) => {
+  _list.forEach((item) => {
     const li = document.createElement('li');
     li.textContent = item.name;
     li.addEventListener('click', () => focusOnFrame(item));

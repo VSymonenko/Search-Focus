@@ -13,5 +13,6 @@ module.exports = {
   ignorePatterns: ['*.d.ts'],
   rules: {
     'max-len': ['error', { code: 85 }],
-  }
+    'no-shadow': 'error',
+  },
 }
