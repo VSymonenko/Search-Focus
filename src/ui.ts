@@ -60,19 +60,30 @@ optionsPanel.appendChild(bounderiesWrapper);
 bounderiesWrapper.appendChild(bounderiesInput);
 bounderiesWrapper.appendChild(bounderiesLabel);
 
-caseInput.addEventListener('change', (event) => {
-  if (u.isInputTarget(event.target)) {
-    options.caseSensitive = event.target.checked;
-    updateList(event);
-  }
-});
+export const updateOption = (option: keyof FindOptions) =>
+  (value: boolean) => options[option] = value;
 
-bounderiesInput.addEventListener('change', (event) => {
+export const updateCaseSensitive = updateOption('caseSensitive');
+
+export const handleCaseSensitive = (event: Event) => {
   if (u.isInputTarget(event.target)) {
-    options.bounderies = event.target.checked;
+    updateCaseSensitive(event.target.checked);
     updateList(event);
   }
-});
+}
+
+caseInput.addEventListener('change', handleCaseSensitive);
+
+export const updateBounderies = updateOption('bounderies');
+
+export const handleBounderies = (event: Event) => {
+  if (u.isInputTarget(event.target)) {
+    updateBounderies(event.target.checked);
+    updateList(event);
+  }
+};
+
+bounderiesInput.addEventListener('change', handleBounderies);
 
 onmessage = (event) => {
   if (event.data.pluginMessage) {
@@ -135,7 +146,6 @@ export const appendList = (list: FrameKey[], _ul = ul) => {
     _ul.appendChild(li);
   });
 };
-
 
 export const updateList = (event: Event) => {
   clearNode(ul);
