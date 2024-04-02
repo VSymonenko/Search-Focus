@@ -15,3 +15,15 @@ describe('isInputTarget', () => {
     expect(u.isInputTarget(event.target)).toBeTruthy();
   });
 });
+
+describe('createElement', () => {
+  test('should be return HTMLInputElement', () => {
+    const input = u.createElement('input');
+    expect(input).toBeInstanceOf(HTMLInputElement);
+  });
+
+  test('should be create input with type checkbox', () => {
+    const input = u.createElement('input', { type: 'checkbox' });
+    expect(input.type).toBe('checkbox');
+  });
+});
