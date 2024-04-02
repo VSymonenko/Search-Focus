@@ -20,28 +20,28 @@ const input = u.createElement('input', {
 
 const inputWrapper = u.createElement('div', {
   className: 'input-container input',
-})
-  .appendChild(input);
+});
+inputWrapper.appendChild(input);
 
 const root = document.getElementById('search-and-focus');
-// const inputWrapper = document.createElement('div');
 const optionsPanel = document.createElement('div');
-const header = document.createElement('header')
-  .appendChild(inputWrapper);
+const header = document.createElement('header');
+header.appendChild(inputWrapper);
 const ul = document.createElement('ul');
-const caseInput = document.createElement('input');
+const caseInput = u.createElement('input', {
+  type: 'checkbox',
+  id: 'case-sensitive',
+  className: 'checkbox__box',
+});
 const caseLabel = document.createElement('label');
-const caseWrapper = u.createElement('div', { className: 'checkbox' })
-  .appendChild(caseInput)
-  .appendChild(caseLabel);
+const caseWrapper = u.createElement('div', { className: 'checkbox' });
+caseWrapper.appendChild(caseInput);
+caseWrapper.appendChild(caseLabel);
 const bounderiesWrapper = document.createElement('div');
 const bounderiesInput = document.createElement('input');
 const bounderiesLabel = document.createElement('label');
 let list: FrameKey[] = [];
 
-caseInput.type = 'checkbox';
-caseInput.id = 'case-sensitive';
-caseInput.className = 'checkbox__box';
 caseLabel.innerText = 'Case sensitive';
 caseLabel.htmlFor = 'case-sensitive';
 caseLabel.className = 'checkbox__label';
