@@ -41,13 +41,12 @@ const caseLabel = u.createElement('label', {
 const caseWrapper = u.createElement('div', { className: 'checkbox' });
 caseWrapper.appendChild(caseInput);
 caseWrapper.appendChild(caseLabel);
-const bounderiesWrapper = document.createElement('div');
+const bounderiesWrapper = u.createElement('div', { className: 'checkbox' });
 const bounderiesInput = document.createElement('input');
 const bounderiesLabel = document.createElement('label');
 let list: FrameKey[] = [];
 
 
-bounderiesWrapper.className = 'checkbox';
 bounderiesInput.type = 'checkbox';
 bounderiesInput.id = 'bounderies-switch';
 bounderiesInput.className = 'checkbox__box';
