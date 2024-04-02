@@ -47,12 +47,12 @@ const bounderiesInput = u.createElement('input', {
   id: 'bounderies-switch',
   className: 'checkbox__box',
 });
-const bounderiesLabel = document.createElement('label');
+const bounderiesLabel = u.createElement('label', {
+  innerText: 'Match Whole Word',
+  htmlFor: 'bounderies-switch',
+  className: 'checkbox__label',
+});
 let list: FrameKey[] = [];
-
-bounderiesLabel.innerText = 'Match Whole Word';
-bounderiesLabel.htmlFor = 'bounderies-switch';
-bounderiesLabel.className = 'checkbox__label';
 
 optionsPanel.className = 'options-panel';
 optionsPanel.appendChild(caseWrapper);
