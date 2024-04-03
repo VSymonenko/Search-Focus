@@ -11,8 +11,3 @@ interface FindOptions {
 type Entries<T> = {
     [K in keyof T]: [K, T[K]];
 }[keyof T][];
-
-type FindOptions = {
-  caseSensitive: boolean;
-  bounderies: boolean;
-};
