@@ -1,6 +1,6 @@
 interface FrameKey {
-  name: string;
-  id: string;
+  readonly name: string;
+  readonly id: string;
 }
 
 interface FindOptions {
