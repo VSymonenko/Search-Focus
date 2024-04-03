@@ -1,6 +1,6 @@
 const delimiter = '💪( ͡❛ ͜ʖ ͡❛҂)';
 
-const encription = (key: FrameKey, separator: string): string => {
+const encription = (key: Readonly<FrameKey>, separator: string): string => {
   return `${key.name}${separator}${key.id}`;
 }
 
@@ -9,7 +9,8 @@ const decription = (key: string, separator: string): FrameKey => {
   return { name, id };
 }
 
-type Bcrypt = (key: string | FrameKey, separator?: string) => string | FrameKey;
+type Bcrypt = (key: string | Readonly<FrameKey>, separator?: string)
+  => string | FrameKey;
 export const bcrypt: Bcrypt = (key, separator = delimiter): string | FrameKey => {
   return (typeof key === 'string')
     ? decription(key, separator)
