@@ -1,6 +1,7 @@
 import './ui.css';
 import 'figma-plugin-ds/dist/figma-plugin-ds.css';
 
+import * as s from './store';
 import * as u from './utils';
 
 import { bcrypt } from './share';
@@ -11,6 +12,8 @@ const options: FindOptions = {
   caseSensitive: false,
   bounderies: false,
 }
+
+const store = s.createStore(options);
 
 const input = u.createElement('input', {
   type: 'search',
@@ -59,10 +62,7 @@ optionsPanel.appendChild(bounderiesWrapper);
 bounderiesWrapper.appendChild(bounderiesInput);
 bounderiesWrapper.appendChild(bounderiesLabel);
 
-export const updateOption = (option: keyof FindOptions) =>
-  (value: boolean) => options[option] = value;
-
-export const updateCaseSensitive = updateOption('caseSensitive');
+export const updateCaseSensitive = store.updateState('caseSensitive');
 
 export const handleCaseSensitive = (event: Event) => {
   if (u.isInputTarget(event.target)) {
@@ -73,7 +73,7 @@ export const handleCaseSensitive = (event: Event) => {
 
 caseInput.addEventListener('change', handleCaseSensitive);
 
-export const updateBounderies = updateOption('bounderies');
+export const updateBounderies = store.updateState('bounderies');
 
 export const handleBounderies = (event: Event) => {
   if (u.isInputTarget(event.target)) {
@@ -93,19 +93,18 @@ onmessage = (event) => {
   }
 };
 
-type Find = (items: FrameKey[], value: string, _options?: FindOptions) => FrameKey[];
-export const find: Find = (items, value, _options = options): FrameKey[] => {
-  return items
-    .filter(({name}) => {
-      return _options.caseSensitive
+type Find = (items: FrameKey[], value: string, _opts?: FindOptions) => FrameKey[];
+export const find: Find = (items, value, _opts = store.getState() as FindOptions) =>
+  items
+    .filter(({ name }) => {
+      return _opts.caseSensitive
         ? name.includes(value)
         : name.toLocaleLowerCase().includes(value.toLocaleLowerCase());
     })
-    .filter(({name}) => {
+    .filter(({ name }) => {
       const regex = new RegExp(`\\b${value.toLowerCase()}\\b`);
-      return _options.bounderies ? regex.test(name.toLowerCase()) : true;
+      return _opts.bounderies ? regex.test(name.toLowerCase()) : true;
     });
-};
 
 export const clearNode = (node: Node) => {
   while (node.lastChild) {

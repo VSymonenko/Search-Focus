@@ -3,7 +3,7 @@ export const createStore = <T extends object, K extends keyof T, V extends T[K]>
   if (!init) {
     throw new Error('you should be pass initial state');
   }
-  
+
   const _state = { ...init};
 
   return {
