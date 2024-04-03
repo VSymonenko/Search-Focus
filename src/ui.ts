@@ -14,6 +14,7 @@ const options: FindOptions = {
 }
 
 const store = s.createStore(options);
+const listStore = s.createStore({ list: [] } as { list: FrameKey[] });
 
 const input = u.createElement('input', {
   type: 'search',
@@ -55,7 +56,6 @@ const bounderiesLabel = u.createElement('label', {
   htmlFor: 'bounderies-switch',
   className: 'checkbox__label',
 });
-let list: FrameKey[] = [];
 
 optionsPanel.appendChild(caseWrapper);
 optionsPanel.appendChild(bounderiesWrapper);
@@ -88,7 +88,7 @@ onmessage = (event) => {
   if (event.data.pluginMessage) {
     const { type, list: frameList } = event.data.pluginMessage;
     if (type === 'send-list') {
-      list = frameList.map((key: string) => bcrypt(key));
+      listStore.updateState('list')(frameList.map((key: string) => bcrypt(key)));
     }
   }
 };
@@ -150,6 +150,7 @@ export const updateList = (event: Event) => {
     if (value.length <= 1) {
       return;
     } else {
+      const list = listStore.getState('list') as FrameKey[];
       result = find(list, value);
       appendList(result);
     }
