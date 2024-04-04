@@ -18,6 +18,7 @@ module.exports = {
     'max-len': ['error', { code: 85 }],
     'no-shadow': 'error',
     'functional/no-expression-statements': ['error', { ignoreVoid: true }],
+    'functional/functional-parameters': ['error', { enforceParameterCount: false }],
   },
   plugins: ['functional']
 }
