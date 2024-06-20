@@ -8,5 +8,8 @@
     "figma",
     "figjam"
   ],
-  "documentAccess": "dynamic-page"
+  "documentAccess": "dynamic-page",
+  "networkAccess": {
+    "allowedDomains": ["none"]
+  }
 }
