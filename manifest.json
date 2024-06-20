@@ -6,8 +6,7 @@
   "ui": "./dist/index.html",
   "editorType": [
     "figma",
-    "figjam",
-    "dev"
+    "figjam"
   ],
   "documentAccess": "dynamic-page"
 }
