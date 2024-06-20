@@ -1,6 +1,6 @@
 {
   "name": "ff",
-  "version": "1.6.3",
+  "version": "1.6.4",
   "description": "Focusing on your search results in Figma",
   "main": "code.js",
   "scripts": {
