@@ -1,0 +1,63 @@
+{
+  "lists": [
+    {
+      "id": "6ff76b7b-7df7-4416-a61f-d5b7e84f2211",
+      "title": "inbox",
+      "cards": []
+    },
+    {
+      "id": "3d686031-42de-4ec3-93b6-c53306cccef9",
+      "title": "todo",
+      "cards": [
+        {
+          "id": "83ad4ffb-0ad2-4d3a-8707-56564b2b4ebe",
+          "listId": "3d686031-42de-4ec3-93b6-c53306cccef9",
+          "title": "Make fuzi search",
+          "description": "Finds matches even when the search query doesn't perfectly match corresponding data",
+          "labels": [],
+          "checkboxes": [
+            {
+              "id": "a4139708-8be0-4fee-a14c-86e30fd89e1c",
+              "title": "Investigate how fuzzy search work",
+              "checked": false
+            },
+            {
+              "id": "55d36ea0-995d-4593-b00b-9fee5b19719a",
+              "title": "Search library for fuzzy search",
+              "checked": false
+            },
+            {
+              "id": "4454dd4e-0112-40c8-a13d-106a1959c2a5",
+              "title": "pass unit tests",
+              "checked": false
+            }
+          ],
+          "comments": []
+        }
+      ]
+    },
+    {
+      "id": "cdfbf780-0f15-4472-80c8-265b9c50a663",
+      "title": "in progress",
+      "cards": []
+    },
+    {
+      "id": "194d244d-86a4-48a1-95da-6af541500850",
+      "title": "done",
+      "cards": []
+    }
+  ],
+  "archive": {
+    "lists": [],
+    "cards": []
+  },
+  "settings": {
+    "labels": [
+      {
+        "id": "39d2a4df-c21b-4914-ba7a-fe178d949a3d",
+        "title": "TASK",
+        "color": "#00c2e0"
+      }
+    ]
+  }
+}
