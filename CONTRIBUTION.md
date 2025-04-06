@@ -4,6 +4,10 @@
 
 - clone project
 - install dependencies ```npm i```
+- install portable kanban plugin for vscode. Run in command palete
+```bash
+ext install portable-kanban
+```
 
 ## Development
 
