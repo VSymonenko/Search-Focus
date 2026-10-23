@@ -34,7 +34,7 @@
     "jsdom": "^24.0.0",
     "release-it": "^21.1.1",
     "typescript": "^5.4.2",
-    "vite": "^7.3.2",
+    "vite": "^7.3.7",
     "vitest": "^4.1.11"
   },
   "dependencies": {
